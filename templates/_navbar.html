@@ -1,0 +1,25 @@
+{% macro my_navbar() %}
+    <div class="navbar navbar-inverse navbar-fixed-top" style="max-height: 50px">
+        <div class="container-full">
+            <div style="background:url('/static/img/title_bg.jpg');width:100%">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <img src="/static/img/logo.png" style="float: left;">
+                    <ul class="nav navbar-nav" style="margin-left: 40%">
+                        <li><a href="{{ url_for('index') }}">主页</a></li>
+                        <li ><a href="{{ url_for('introduce') }}">团队介绍</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+{% endmacro %}

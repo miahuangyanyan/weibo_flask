@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>My Portfolio - Bootstrap Theme</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link href="/static/css/theme.css" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" type="text/css">
+    <link href="/static/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+{% from "_navbar.html" import my_navbar %}
+{{ my_navbar() }}
+
+<div id="theme-carousel" class="carousel slide" data-ride="carousel" style="background-color: #f2f2f2">
+    <!-- Indicators -->
+
+    <!-- Wrapper for slides -->
+{#    <div class="carousel-inner" role="listbox" style="background-image: url( {{ url_for("static", filename="img/introback.jpg") }});">#}
+       <div class="carousel-inner" role="listbox" >
+        <div class="item active">
+            <img src="/static/img/hezhao.jpg" alt="carousel1" class = "img-responsive" style="margin-left:auto;margin-right:auto;width:75%;height=75%;object-fit:cover;"/>
+            <div class="carousel-caption">
+                <h1 class="text-danger">POPCORN</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container-services">
+    <div class="container">
+        <div class="page-header" id="services">
+            <h1 class="text-center text-danger">团队篇</h1>
+            <h2 class="text-center" style="color: #FFFFFF;">
+                POPCORN团队来自于台湾淡江大学与中国科学院深圳先进技术研究院，本团队依托淡江大学信息管理所和深圳市高性能数据挖掘重点实验室，该两岸单元合作研究与实作网络意见探勘(Opinion
+                Mining)之相关议题与技术研发。自2010年「部落格分析系统」之专题系统开发开始，针对情感分析(Sentiment Analysis)之理论与基础架构进行研发，
+                以及网络意见探勘之应用领域进行系统与专题开发。双方就技术研发与应用系统开发已有初步成果，并共同表多篇论文。<br/></h2>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-about">
+    <div class="container">
+        <div class="page-header" id="about">
+            <h1 class="text-center text-danger">人物篇</h1>
+            <br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/teacher.png"/>
+                <h3 class="text-danger">指导老师：萧瑞祥</h3>
+                <br/>
+                <p class="text-justify">
+                    博士，现为淡江大学资管系教授，中国科学院深圳先进技术研究院客座研究员。曾任淡江大学资管系系主任、创新育成中心主任、代理研发长、台湾信息管理学会秘书长、创新资服竞赛副主任委员等。目前主要研究专长领域为：社群网络意见探勘、信息教育、信息策略与管理、电子商务等。在信息安全、互联网舆情分析、云计算应用等领域，具有一定的知名度，发表学术论文60多篇，20多项专利。先后承担台湾科技部｢台湾企业导入个人资料保护与管理制度及隐私标章之研究｣计划，国科会「信息安全治理之实践性研究」计划，
+                    国科会「产学合作计划－校园云端服务管理系统整合研发」计划，国科会「信息安全管理系统遵循性辅助工具设计之研究」计划等重大项目</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/che.png"/>
+                <h3 class="text-danger">队长：车丹丹</h3>
+                <br/>
+                <p class="text-justify">
+                    中国科学院深圳先进技术研究院计算机技术2017级硕士研究生，研究方向为数据分析和数据挖掘，初步掌握网络爬虫框架及工具。曾获得美国数学建模大赛二等奖，挑战杯全国大学生大赛三等奖，
+                    市场调查分析河北省二等奖等，并多次获得综合测评和创新创业奖学金</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/ma.png"/>
+                <h3 class="text-danger">成员：马强</h3>
+                <br/>
+                <p class="text-justify">中国科学院先进技术研究所数据挖掘实验室客座研究生，香港城市大学2016级研究生，
+                    主要研究方向数据挖掘、自然语言处理、情感分析，熟悉java及python开发，有较多的项目经验。</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/mia.png"/>
+                <h3 class="text-danger">成员：黄妍明</h3>
+                <br/>
+                <p class="text-justify">
+                    中国科学院先进技术研究所数据挖掘实验室客座研究生，华南师范大学软件工程专业2015级研究生，研究方向自然语言处理，数据挖掘，机器学习。熟悉网络爬虫框架及工具，TensorFlow，theano
+                    等框架，
+                    曾获得国家奖学金，中国大学生服务外包比赛三等奖，挑战杯软件比赛优秀奖等</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/zhong.png"/>
+                <h3 class="text-danger">成员：钟琼丽</h3>
+                <br/>
+                <p class="text-justify"> 中国科学院先进技术研究所数据挖掘实验室客座研究生，汕头大学计算机技术专业2016级研究生，研究方向是数据挖掘、自然语言处理，在深度学习、机器学习领域内学习，
+                    主要从事网络数据采集与分布式数据处理、存储，曾多次获得综合测评一等奖及三好学生。</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-responsive" style="border-radius:50%; width:250px; height:250px;"
+                     src="/static/img/chen.png"/>
+                <h3 class="text-danger">成员：陈竑嘉</h3>
+                <br/>
+                <p class="text-justify">台湾淡江大学信息管理学系2016级硕士研究生。研究方向为舆情分析、文字探勘。熟悉使用python及C#，
+                    主要应用于网络爬虫及情感分析。</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="container-gallery">
+    <div class="container">
+        <div class="page-header" id="gallery">
+            <h1 class="text-center text-danger">工作篇</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-unstyled text-center">
+                    <li class="filter btn btn-danger" data-filter="all">ALL</li>
+                    <li class="filter btn btn-danger" data-filter=".graphic">GRAPHICS</li>
+                    <li class="filter btn btn-danger" data-filter=".print">PRINT</li>
+                    <li class="filter btn btn-danger" data-filter=".webdesign">WEB DESIGN</li>
+                </ul>
+            </div>
+            <div class="mix graphic col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery1.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery1.jpg"/>
+                </a>
+            </div>
+            <div class="mix print col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery2.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery2.jpg"/>
+                </a>
+            </div>
+            <div class="mix webdesign col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery3.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery3.jpg"/>
+                </a>
+            </div>
+            <div class="mix webdesign col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery4.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery4.jpg"/>
+                </a>
+            </div>
+            <div class="mix print col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery5.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery5.jpg"/>
+                </a>
+            </div>
+            <div class="mix graphic col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery6.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery6.jpg"/>
+                </a>
+            </div>
+            <div class="mix webdesign col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery7.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery7.jpg"/>
+                </a>
+            </div>
+            <div class="mix webdesign col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery8.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery8.jpg"/>
+                </a>
+            </div>
+            <div class="mix graphic col-md-4 col-sm-6 col-xs-12">
+                <a href="/static/img/gallery/gallery9.jpg" class="img-wrapper">
+                    <img class="img-responsive" src="/static/img/gallery/gallery9.jpg"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.mixitup.min.js"></script>
+<link href="/static/css/magnific-popup.css" rel="stylesheet">
+<script src="/static/js/jquery.magnific-popup.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="/static/js/theme.js"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        // Mix It Up Gallery and Magnific Popup setup
+        $('.container-gallery').mixItUp();
+        $('.container-gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image'
+        });
+        // Google Maps setup
+        var googlemap = new google.maps.Map(
+            document.getElementById('googlemap'),
+            {
+                center: new google.maps.LatLng(44.5403, -78.5463),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        );
+    });
+</script>
+
+</body>
+
+</html>

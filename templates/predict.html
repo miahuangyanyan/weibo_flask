@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>电影票房预测</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+{#    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>#}
+    {#    <script scr="{{ url_for('static', filename='my_js/predict_movie_box_office.js') }}"></script>#}
+    <style type="text/css">
+        .v-center {
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            padding-top: 50px;
+            background-color: #f2f2f2;
+
+        }
+
+    </style>
+</head>
+<body>
+{% from "_navbar.html" import my_navbar %}
+{{ my_navbar() }}
+<div style="background-color: #ffffff;width: 80%;margin-left: 10%">
+    <h4><font size='3px' color="#a9a9a9">首页>><u>电影票房预测</u></font></h4>
+</div>
+
+<div class = "container-fluid" style="background-color: #ffffff;width: 80%;margin-left: 10% ">
+    <div class="row">
+        <div class="col-sm-10">
+            <form class="form-horizontal" role="form" method="POST" action=" {{ url_for('predict') }}">
+                <div class="form-group">
+                    <div class="col-xs-4" style="margin-top: 4%">
+                        <label class="col-sm-4 control-label">{{ form.movie_budget.label }} </label>
+                        <div class="col-sm-5">
+                            {{ form.movie_budget(class="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4" style="margin-top: 4%">
+                        <label class="col-sm-4 control-label"> {{ form.is_gold_type.label }}</label>
+                        <div class="col-sm-5">
+                            {{ form.is_gold_type(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label">   {{ form.is_sequel.label }} </label>
+                        <div class="col-sm-5">
+                            {{ form.is_sequel(class="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label"> {{ form.publisher.label }}</label>
+                        <div class="col-sm-5">
+                            {{ form.publisher(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label">  {{ form.movie_type.label }}</label>
+                        <div class="col-sm-5">
+                            {{ form.movie_type(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+
+                <p><font style="color: #61c191" size="4px"><strong>主创名单</strong></font></p>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label" for="director"> {{ form.director.label }} </label>
+                        <div class="col-sm-5">
+                            {{ form.director(class="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label" for="actor1"> {{ form.actor1.label }}</label>
+                        <div class="col-sm-5">
+                            {{ form.actor1(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label" for="director"> {{ form.actor2.label }} </label>
+                        <div class="col-sm-5">
+                            {{ form.actor2(class="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label" for="actor1"> {{ form.actor3.label }}</label>
+                        <div class="col-sm-5">
+                            {{ form.actor3(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label class="col-sm-4 control-label" for="director"> {{ form.actor4.label }} </label>
+                        <div class="col-sm-5">
+                            {{ form.actor4(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="container">
+                        <div class="col-sm-2 col-sm-offset-2" style="margin-left: 20%">
+                            {{ form.submit(class="btn btn-primary btn-group-justified" ) }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-2" style="background-color:#e9e9e9 ;margin-top: 8%; margin-left: -20%">
+            <h4><font size='3px' style="margin-top: 5px">填写说明 :</font></h4>
+            <h4><font size='3px'>须填写完所有信息,点击"提交"按钮，
+                便可生成预测电影票房，...</font></h4>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-14">
+                        <br>
+                        <h3 class="text-center text-primary">
+                            电影票房预测
+                        </h3>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-14" id="predict_movie_box_office"
+                     style="height:500px;border:1px solid #ccc;padding:10px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='my_js/predict_movie_box_office.js') }}"
+        {% if appusage_data %}
+            onload="ShowPredictMovieBoxOffice({{ appusage_data.box_office }})">
+        {% endif %}
+</script>
+
+</body>
+</html>

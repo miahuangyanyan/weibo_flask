@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>主创画像</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script type="text/javascipt">appusage_data = {{ appusage_data }}; </script>
+    <style type="text/css">
+        .v-center {
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            padding-top: 50px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+{% from "_navbar.html" import my_navbar %}
+{{ my_navbar() }}
+<div style="background-color: #ffffff;width: 80%;margin-left: 10%">
+    <h4><font size='3px' color="#808080">首页>><u>主创画像</u></font></h4>
+</div>
+
+<div style="background-color: #ffffff;width: 80%;margin-left: 10%">
+    <div class="row">
+        {% if form %}
+            <div class="row row-centered " align="center">
+                {% from "_field.html" import render_field %}
+                <form class="form-inline" method="POST" action=" {{ url_for('creator') }}">
+                    <div class="form-group">
+                        <!-- {{render_field(form.username)}} -->
+                        {{ form.username(class="input-big",placeholder="姓名") }}
+                    </div>
+                    {{ form.submit(class="btn btn-default" ) }}
+                </form>
+                <br>
+                <br>
+            </div>
+        {% endif %}
+        <div class="col-md-12" style="background-color: #ffffff;width: 80%;margin-left: 10%">
+            <div class="row">
+
+                {% if img_stream %}
+                    <div class="col-md-2">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <img alt="Creator Image" src="{{ img_stream }}" class="img-circle img-responsive center-block" style="margin-left: -40%">
+                        <br>
+                        <div class=" panel-default"  style="margin-left: -80%">
+                            <div class="input-prepend">
+                                <h2 class="text-center text-primary" align=center><font color="black">
+                                    {{ form.username.data }}</font>
+                                </h2>
+
+                                <h2 class="panel-title text-center text-primary"><font
+                                        size=3px;color="#333333"> {{ appusage_data[0]['job'] }}</font>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+                {% if appusage_data %}
+                    <div class="col-md-10" id="creator_table" style="height:500px;border:1px solid #ccc;padding:10px;">
+                    </div>
+                {% endif %}
+
+            </div>
+            <br>
+        </div>
+
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+{% if movie_name_list and movie_box_office %}
+    <div class="container" style="background-color: #ffffff; width: 80%;margin-left: 10%">
+        <div class="row">
+            <div class="col-md-2">
+                <h2 class="text-center text-primary"><font color="black" size=5px>
+                    历史票房记录</font>
+                </h2>
+            </div>
+        </div>
+
+        <div class="" id="movie_box_office"
+         style="height:500px;border:1px solid #ccc;padding:10px;background-color: #ffffff">
+        </div>
+        <br>
+
+    </div>
+{% endif %}
+
+{% if appusage_data %}
+    <script src="{{ url_for('static', filename='my_js/creator_table.js') }}" onload="CreateTable({{ appusage_data }})">
+    </script>
+{% endif %}
+
+{% if movie_name_list and movie_box_office %}
+    <script src = "{{ url_for('static', filename='my_js/movie_box_office.js') }}"
+    onload = "ShowMovieBoxOffice({{movie_name_list}}, {{movie_box_office}})" >
+    </script>
+{% endif %}
+
+</body>
+
+</html>

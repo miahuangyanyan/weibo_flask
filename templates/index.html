@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 3, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet"> -->
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Antic+Slab);
+
+        .div-relative {
+            position: relative
+        }
+
+        /*.creator{ position:absolute ;left:650px; top:500px}
+
+        .predict{ position:absolute; left:950px; top:500px }
+
+        .recommend{ position:absol*/
+        ute
+
+        ;
+        left:
+
+        1250
+        px
+
+        ;
+        top:
+
+        500
+        px
+
+        }
+
+        .button {
+            position: absolute;
+            left: 900px;
+            top: 700px;
+            display: inline-block;
+            font-size: 30px;
+            width: 230px;
+            height: 40px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+
+        }
+
+        .button:active {
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .text {
+            position: absolute;
+            left: 970px;
+            top: 750px;
+            color: #ffc602;
+            font-size: 20px
+        }
+
+        body {
+            background-image: url("{{url_for("static", filename="img/index.jpg")}}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .v-center {
+            margin-top: 55%;
+            margin-left: 25%;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="row v-center">
+        <div class="col-xs-6 col-md-4">
+            <a herf="#" class="img-circle ">
+                <img alt="主创画像" src="/static/img/creator_logo.png">
+            </a>
+            <div class="caption ">
+                <h3>
+                    <button onClick="location.href='{{ url_for('creator') }}'" class="btn btn-defult ">主创画像</button>
+                </h3>
+
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+            <a herf="{{ url_for('predict') }}" class="img-circle">
+                <img alt="票房预测 text-center" src="/static/img/predict_logo.png">
+            </a>
+            <div class="caption ">
+                <h3>
+                    <button onClick="location.href='{{ url_for('predict') }}'" class="btn btn-defult">票房预测</button>
+                </h3>
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+            <a herf="{{ url_for('recommend') }}" class="img-circle">
+                <img alt="主创推荐" src="/static/img/recommend_logo.png">
+            </a>
+            <div class="caption ">
+                <h3>
+                    <button onClick="location.href='{{ url_for('recommend') }}'" class="btn btn-defult">主创推荐</button>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
